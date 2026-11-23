@@ -31,6 +31,8 @@
 **取得資料 → 人工審核 → 存入 raw → 批次討論 → 生成 wiki → 檢查 0（溯源）→ 查詢 wiki → 產生簡報 → 檢查 1–4（程式）→ 語意審查（LLM）→ 視覺檢查 → 輸出**
 
 ## 5. 一次實際執行的結果與檢查紀錄
+- 視覺化檢查報告（線上）：https://w840306w.github.io/taica_-1110/docs/check-report.html
+- 截圖：[資料取得](images/check-report-1-collect.jpg)、[檢查 loop](images/check-report-2-loop.jpg)、[最終結果](images/check-report-3-final.jpg)
 - [docs/run-log.md](run-log.md)：記錄擷取失敗 5 次、4 個討論決定、3 輪檢查和 1 次突變測試
 - 原始檢查輸出：[check-round1.txt](check-round1.txt)、[check-round2.txt](check-round2.txt)、[check-round3.txt](check-round3.txt)
 - 檢查工具：[tools/check.js](../tools/check.js)

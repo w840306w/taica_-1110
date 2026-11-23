@@ -42,8 +42,16 @@
 
 ## 5. 一次實際執行的結果與檢查紀錄
 
+- **視覺化檢查報告（線上）**：**https://w840306w.github.io/taica_-1110/docs/check-report.html**
+
+![資料取得結果與討論決定](docs/images/check-report-1-collect.jpg)
+
+![檢查 loop：第 1 輪、突變測試、第 2 輪、語意審查](docs/images/check-report-2-loop.jpg)
+
+![第 3 輪全部通過與 workflow 修改](docs/images/check-report-3-final.jpg)
+
 - [docs/run-log.md](docs/run-log.md)：擷取失敗 5 次、4 個討論決定、3 輪檢查和 1 次突變測試
-- 檢查原始輸出：[第 1 輪](docs/check-round1.txt)、[第 2 輪](docs/check-round2.txt)、[第 3 輪](docs/check-round3.txt)
+- 檢查原始輸出：[第 1 輪](docs/check-round1.txt)、[突變測試](docs/check-mutation.txt)、[第 2 輪](docs/check-round2.txt)、[第 3 輪](docs/check-round3.txt)
 - 檢查工具：[tools/check.js](tools/check.js)
 
 ## 6. 反思

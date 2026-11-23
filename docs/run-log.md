@@ -1,5 +1,9 @@
 # 一次實際執行的紀錄（2026-11-23）
 
+> 視覺化版本：[check-report.html](check-report.html)（線上：https://w840306w.github.io/taica_-1110/docs/check-report.html）
+
+![檢查 loop 截圖](images/check-report-2-loop.jpg)
+
 ## 1. Collect：搜尋與擷取
 
 | # | 候選來源 | 結果 | 處理方式 |

@@ -1,0 +1,14 @@
+# 突變測試：把第 7 張的 2668.9 改成 2700、第 11 張的 70 大卡改成 80 大卡
+[1] wiki 連結檢查
+  檢查了 25 頁、133 個連結
+[0] ingest 溯源檢查：sources/ 頁面的數字是否都出現在 raw 原文中
+[2][3] 簡報溯源檢查
+  ✗ 第 7 張：數字 [2700] 在引用的 wiki 頁面（guide/how-to-calculate.md, concepts/caloric-deficit.md）中找不到
+  ✗ 第 11 張：數字 [80] 在引用的 wiki 頁面（combos/tea-egg-breakfast.md, products/tea-egg.md）中找不到
+  檢查了 13 張投影片
+[4] 安全聲明檢查
+[5] 待查證統計
+  wiki 中共有 21 個 ⚠️ 標記（資料缺口，不算錯誤）
+
+結果：2 項不通過 → 退回修正
+exit=1
