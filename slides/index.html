@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>外食族也能瘦：超商客製化減脂入門</title>
+<style>
+  :root { --bg:#f7f5ef; --ink:#1f2a24; --muted:#5d6b63; --accent:#2f7d5b; --accent2:#e07a3f; --card:#fff; --line:#dfe5df; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--ink);
+    font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif; }
+  .slide { display:none; position:absolute; inset:0; padding:5vh 7vw 9vh; flex-direction:column; justify-content:center; }
+  .slide.active { display:flex; }
+  h1 { font-size:clamp(28px,5vw,56px); margin:0 0 .4em; line-height:1.2; }
+  h2 { font-size:clamp(22px,3.4vw,40px); margin:0 0 .6em; color:var(--accent); }
+  p, li { font-size:clamp(16px,2vw,24px); line-height:1.6; }
+  ul { margin:.2em 0; padding-left:1.2em; }
+  .sub { color:var(--muted); font-size:clamp(16px,2.2vw,26px); }
+  .big { font-size:clamp(34px,6vw,72px); font-weight:700; color:var(--accent2); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
+  .card h3 { margin:0 0 .3em; font-size:clamp(18px,2.2vw,26px); }
+  .formula { background:#1f2a24; color:#e8f3ec; border-radius:12px; padding:16px 20px; font-family:Consolas,monospace; font-size:clamp(15px,2vw,24px); }
+  table { border-collapse:collapse; width:100%; background:var(--card); font-size:clamp(14px,1.8vw,21px); }
+  th, td { border:1px solid var(--line); padding:8px 12px; text-align:left; }
+  th { background:#eaf3ee; }
+  tr.hl td { background:#fff3e8; font-weight:700; }
+  .warn { border-left:6px solid var(--accent2); background:#fff7f0; padding:12px 16px; border-radius:8px; }
+  .src { position:absolute; left:7vw; right:7vw; bottom:3.2vh; font-size:13px; color:var(--muted); border-top:1px solid var(--line); padding-top:6px; }
+  .flow { display:flex; flex-wrap:wrap; align-items:center; gap:10px; font-size:clamp(16px,2vw,24px); }
+  .flow span.step { background:var(--accent); color:#fff; padding:10px 16px; border-radius:30px; }
+  .flow span.arrow { color:var(--muted); }
+  nav { position:fixed; right:18px; bottom:12px; display:flex; gap:8px; align-items:center; z-index:9; }
+  nav button { border:none; background:var(--accent); color:#fff; border-radius:8px; padding:6px 14px; font-size:16px; cursor:pointer; }
+  #counter { color:var(--muted); font-size:14px; min-width:60px; text-align:center; }
+  #bar { position:fixed; left:0; top:0; height:4px; background:var(--accent2); transition:width .2s; }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- 每張投影片的 data-wiki 列出內容引用的 wiki 頁面，tools/check.js 會檢查數字是否出現在這些頁面中 -->
+
+<section class="slide" data-wiki="overview.md">
+  <h1>外食族也能瘦</h1>
+  <p class="sub">用超商和外食，吃出屬於你的減脂菜單</p>
+  <p>這份簡報會帶你：<br>① 搞懂減脂的原理　② 算出你自己的熱量和蛋白質目標　③ 學會在超商和外食怎麼挑</p>
+  <div class="src">內容來源：本專案的 LLM Wiki（wiki/），共 7 份資料，包含國健署、FAO/WHO/UNU 和學術文獻</div>
+</section>
+
+<section class="slide" data-wiki="concepts/caloric-deficit.md">
+  <h2>減脂只有一個核心原理：熱量赤字</h2>
+  <p><b>吃進去的熱量</b>　＜　<b>身體消耗的熱量</b></p>
+  <p>身體就會動用儲存的能量來補足差額，體重才會下降。</p>
+  <div class="card"><p>每天少 <span class="big">500</span> 大卡 → 每週大約減 <b>0.5–1 公斤</b></p></div>
+  <div class="src">wiki：concepts/caloric-deficit.md ← 國健署〈個人一天所需熱量知多少〉</div>
+</section>
+
+<section class="slide" data-wiki="guide/eating-out-swaps.md">
+  <h2>500 大卡在生活中長什麼樣子？</h2>
+  <div class="grid">
+    <div class="card"><h3>少吃 500</h3><ul><li>一杯 500 c.c. 珍奶（約 300）＋3 塊雞塊（約 200）</li><li>或 1 塊炸雞排</li><li>或半個個人比薩</li></ul></div>
+    <div class="card"><h3>少吃 300＋多動 200</h3><ul><li>少喝 2 瓶 350 c.c. 含糖飲料</li><li>再走路 1 小時，或慢跑 20 分鐘</li></ul></div>
+  </div>
+  <div class="src">wiki：guide/eating-out-swaps.md ← 國健署</div>
+</section>
+
+<section class="slide" data-wiki="guide/how-to-calculate.md">
+  <h2>個人化的四個步驟</h2>
+  <div class="flow">
+    <span class="step">① 算 BMR</span><span class="arrow">→</span>
+    <span class="step">② 乘上活動係數 = TDEE</span><span class="arrow">→</span>
+    <span class="step">③ 減 500，檢查下限</span><span class="arrow">→</span>
+    <span class="step">④ 分配蛋白質、脂肪、碳水</span>
+  </div>
+  <p class="sub">接下來每一步都會用同一個例子示範。</p>
+  <div class="src">wiki：guide/how-to-calculate.md</div>
+</section>
+
+<section class="slide" data-wiki="concepts/bmr.md">
+  <h2>① BMR：躺著不動也會消耗的熱量</h2>
+  <div class="formula">BMR = 10 × 體重(kg) + 6.25 × 身高(cm) − 5 × 年齡 + (男 +5 ／ 女 −161)</div>
+  <p>這是 <b>Mifflin-St Jeor 公式</b>。系統性回顧發現，在 4 個常用公式裡，它最常把估計值控制在實測值 ±10% 以內。</p>
+  <p>例子：30 歲男性、170 cm、70 kg → 10×70 + 6.25×170 − 5×30 + 5 = <b>1617.5 大卡</b></p>
+  <div class="src">wiki：concepts/bmr.md ← Frankenfield 2005（J Am Diet Assoc）</div>
+</section>
+
+<section class="slide" data-wiki="exercise/activity-level.md">
+  <h2>② 你的活動量是哪一級？</h2>
+  <table>
+    <tr><th>等級</th><th>係數</th><th>例子</th></tr>
+    <tr><td>久坐</td><td>1.40</td><td>辦公室上班族，沒有運動習慣</td></tr>
+    <tr><td>輕度</td><td>1.55</td><td>每週運動 1–2 次</td></tr>
+    <tr class="hl"><td>中度</td><td>1.65</td><td>每週運動 3 天、每次 1 小時</td></tr>
+    <tr><td>活躍</td><td>1.75</td><td>幾乎每天運動約 1 小時</td></tr>
+    <tr><td>劇烈</td><td>2.00</td><td>工作需要大量體力，或每天高強度訓練</td></tr>
+  </table>
+  <p class="sub">拿不準的時候，選<b>比較低</b>的那一級，避免高估消耗。</p>
+  <div class="src">wiki：exercise/activity-level.md ← FAO/WHO/UNU 2001（1.65 是取 1.55 和 1.75 中間的推算值）</div>
+</section>
+
+<section class="slide" data-wiki="guide/how-to-calculate.md concepts/caloric-deficit.md">
+  <h2>③ TDEE 減 500，再檢查下限</h2>
+  <p>TDEE = 1617.5 × 1.65 = <b>2668.9 大卡</b>（一天的總消耗）</p>
+  <p>目標 = 2668.9 − 500 ≈ <span class="big">2170</span> 大卡</p>
+  <div class="warn">安全下限：<b>不低於 1200 大卡</b>（國健署），也<b>不低於 BMR</b>，取兩者中比較高的那個。</div>
+  <div class="src">wiki：guide/how-to-calculate.md、concepts/caloric-deficit.md</div>
+</section>
+
+<section class="slide" data-wiki="concepts/tdee.md">
+  <h2>為什麼不同算法的結果差很多？</h2>
+  <div class="grid">
+    <div class="card"><h3>公式 × 活動係數</h3><p>TDEE 約 2669，減脂目標約 2170</p></div>
+    <div class="card"><h3>國健署「每公斤大卡數」</h3><p>過重、輕度工作：20～25 × 70 = 1400–1750</p></div>
+  </div>
+  <p>差異的原因：國健署表格中「過重」那一欄<b>本身就是減重目標</b>，而且<b>只看工作型態，沒有算進運動</b>。</p>
+  <p class="sub">本指南的做法：以公式為主，國健署的數字當作保守的參考，兩個都列出來給你看。</p>
+  <div class="src">wiki：concepts/tdee.md（⚖️ 來源分歧）</div>
+</section>
+
+<section class="slide" data-wiki="concepts/protein.md guide/how-to-calculate.md">
+  <h2>④ 蛋白質：減脂時保住肌肉的關鍵</h2>
+  <ul>
+    <li>每天每公斤體重 <b>1.4–2.0 g</b> → 70 kg 的人是 <b>98–140 g</b></li>
+    <li>每餐 <b>20–40 g</b>，大約每 3–4 小時吃一次</li>
+    <li>脂肪占總熱量的 20–30%（⚠️ 這個比例出自國健署手冊的搜尋摘要，原文還沒查證），剩下的熱量給碳水化合物</li>
+  </ul>
+  <p class="sub">各來源的建議不一樣：ISSN 是 1.4–2.0、ACSM 等學會是 1.2–1.7、國健署是占總熱量 10–20%。本指南採用 ISSN 的數字，因為它針對有運動習慣、正在控制熱量的人。</p>
+  <div class="src">wiki：concepts/protein.md ← ISSN 2017 立場聲明、TVBS 營養師文章、國健署</div>
+</section>
+
+<section class="slide" data-wiki="guide/convenience-store-picking.md concepts/six-food-groups.md">
+  <h2>超商怎麼挑？五個原則</h2>
+  <ul>
+    <li><b>先挑蛋白質</b>：茶葉蛋、即食雞胸肉、無糖豆漿</li>
+    <li><b>豆 ＞ 魚 ＞ 蛋 ＞ 肉</b>：國健署建議的優先順序</li>
+    <li><b>補蔬菜</b>：台灣成人有 <b>86%</b> 蔬菜吃不夠</li>
+    <li><b>補乳品</b>：有 <b>99.8%</b> 乳品吃不夠</li>
+    <li><b>原型食物、看營養標示</b>：低加工、低糖</li>
+  </ul>
+  <div class="src">wiki：guide/convenience-store-picking.md、concepts/six-food-groups.md ← 國健署</div>
+</section>
+
+<section class="slide" data-wiki="combos/tea-egg-breakfast.md products/tea-egg.md">
+  <h2>實戰：茶葉蛋早餐三種組合</h2>
+  <p>茶葉蛋：每顆約 <b>70 大卡、7 g 蛋白質</b>，剛好等於一份豆魚蛋肉類</p>
+  <table>
+    <tr><th>組合</th><th>內容</th><th>蛋白質</th></tr>
+    <tr><td>A</td><td>茶葉蛋＋鮮乳 290 c.c.＋地瓜 200 g</td><td>約 19 g</td></tr>
+    <tr><td>B</td><td>茶葉蛋＋無糖豆漿 400 c.c.＋鮪魚飯糰</td><td>約 25.9 g</td></tr>
+    <tr class="hl"><td>C</td><td>茶葉蛋＋原味雞胸肉＋水果 1 盒</td><td>約 29 g</td></tr>
+  </table>
+  <div class="src">wiki：combos/tea-egg-breakfast.md ← TVBS 2025（受訪營養師：程涵宇）</div>
+</section>
+
+<section class="slide" data-wiki="plans/2026-11-23-office-male-30s.md">
+  <h2>一日方案範例：30 歲辦公室男性</h2>
+  <div class="grid">
+    <div class="card"><h3>目標</h3><p>約 2170 大卡<br>蛋白質 112 g</p></div>
+    <div class="card"><h3>早餐</h3><p>茶葉蛋組合 C<br>約 29 g</p></div>
+    <div class="card"><h3>點心</h3><p>高纖豆漿<br>15.3 g</p></div>
+    <div class="card"><h3>午餐＋晚餐</h3><p>剩下 67.7 g<br>每餐約 34 g</p></div>
+  </div>
+  <p class="sub">你也可以設定自己的預算，讓 AI 從 wiki 中挑出符合預算的組合（價格資料還在收集中）。</p>
+  <div class="src">wiki：plans/2026-11-23-office-male-30s.md</div>
+</section>
+
+<section class="slide" data-wiki="overview.md guide/how-to-calculate.md">
+  <h2>重點回顧與注意事項</h2>
+  <ul>
+    <li>減脂 = 熱量赤字，每天少 500 大卡</li>
+    <li>個人化：BMR → × 活動係數 → − 500 → 分配營養素</li>
+    <li>先吃夠蛋白質，再補蔬菜和乳品</li>
+  </ul>
+  <div class="warn"><b>不適用的對象</b>：孕婦、哺乳中的婦女，以及糖尿病、腎臟病、飲食疾患患者，請諮詢醫師或營養師。<br>
+  本指南僅供一般健康成人參考，不能取代醫療建議；若有疾病或特殊狀況，請諮詢醫師或營養師。</div>
+  <div class="src">wiki：overview.md</div>
+</section>
+
+<nav><button id="prev">◀</button><span id="counter"></span><button id="next">▶</button></nav>
+<script>
+  const slides=[...document.querySelectorAll('.slide')]; let i=0;
+  const show=n=>{ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    document.getElementById('counter').textContent=(i+1)+' / '+slides.length;
+    document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';
+    history.replaceState(null,'','#'+(i+1)); };
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)) show(i+1);
+    if(['ArrowLeft','PageUp'].includes(e.key)) show(i-1); });
+  const fromHash=()=>show((parseInt(location.hash.slice(1))||1)-1);
+  window.addEventListener('hashchange',fromHash);
+  fromHash();
+</script>
+</body>
+</html>
