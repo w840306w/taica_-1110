@@ -18,6 +18,7 @@
 
 ## 2. LLM Wiki 連結與成果
 
+- GitHub repo：https://github.com/w840306w/taica_-1110
 - 目錄：[wiki/index.md](wiki/index.md)
 - 首頁：[wiki/overview.md](wiki/overview.md)
 - 操作日誌：[wiki/log.md](wiki/log.md)
@@ -25,7 +26,7 @@
 
 ## 3. 教學 HTML 簡報
 
-- 線上瀏覽：（GitHub Pages 網址，建好後補上）
+- 線上瀏覽：**https://w840306w.github.io/taica_-1110/slides/**
 - 原始檔：[slides/index.html](slides/index.html)：共 13 張，用方向鍵或右下角按鈕切換
 
 ## 4. Loop / Graph 設計

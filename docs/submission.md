@@ -17,10 +17,12 @@
 - 入口：[wiki/index.md](../wiki/index.md)、[wiki/overview.md](../wiki/overview.md)
 - 操作日誌：[wiki/log.md](../wiki/log.md)
 - Schema：[CLAUDE.md](../CLAUDE.md)
-- （如果要提供線上連結，請把專案推到 GitHub，再附上 repo 網址）
+- GitHub repo：https://github.com/w840306w/taica_-1110（首頁 README 有 6 項繳交內容的總覽）
+- Wiki 目錄線上版：https://github.com/w840306w/taica_-1110/blob/main/wiki/index.md
 
 ## 3. 教學 HTML 簡報
-- [slides/index.html](../slides/index.html)：共 13 張，單一檔案，直接用瀏覽器開啟即可。用方向鍵或右下角按鈕切換
+- 線上瀏覽：https://w840306w.github.io/taica_-1110/slides/
+- 原始檔：[slides/index.html](../slides/index.html)：共 13 張，單一檔案，直接用瀏覽器開啟即可。用方向鍵或右下角按鈕切換
 - 每張投影片底部都標示引用了哪些 wiki 頁面
 
 ## 4. Loop / Graph 說明
